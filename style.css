@@ -410,7 +410,6 @@ letter-spacing: 2px;
 }
 .about-us-content .about-more-text{
    display:none; 
-    background:transparent;
 }
 .test{
     width:100%;
@@ -470,14 +469,17 @@ letter-spacing: 2px;
   
 }
 .about-us-content .text{
-width:100%;
-        background-image: url(img/background.png), url(img/HEADER-second.png);
+    width:100%;
+    background-image: url(img/background.png), url(img/HEADER-second.png);
+}
+     
+     .text-on{
+         width:100%;
+    background-image: url(img/background.png), url(img/HEADER-second.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
-    
-}
+     }
 .about-us-content .img{
  display:none;
  

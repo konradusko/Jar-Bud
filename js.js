@@ -126,8 +126,11 @@ dot3.onclick = function(){
   }
 //about button
 let buttonAbout = document.getElementById("about-button");
+let backgText = document.getElementById("text");
 buttonAbout.addEventListener("click", function(){
     let moreTekst = document.querySelector(".about-more-text");
     moreTekst.style.display = "block";
     buttonAbout.style.display = "none";
+    backgText.classList.remove = "text";
+    backgText.classList.add = "text-on";
 })
