@@ -1,5 +1,5 @@
-  var menu = document.getElementById("hamburger");
-  var menuMobile = document.getElementById("Mobile-active");
+  let menu = document.getElementById("hamburger");
+  let menuMobile = document.getElementById("Mobile-active");
   menu.addEventListener("click", function () {
 
       if (menu.className === "active") {
@@ -11,7 +11,7 @@
       }
   })
 window.addEventListener("click", function(event){
-       var isClickInside = menu.contains(event.target);
+       let isClickInside = menu.contains(event.target);
     if (isClickInside){
           console.log('You clicked inside');
     }else{
@@ -21,20 +21,20 @@ window.addEventListener("click", function(event){
     }
 })
   //banner
-  var bannerStatus = 1;
-  var bannerTimer = 5000;
-  var ban1 = document.getElementById("img-ban1");
-  var ban2 = document.getElementById("img-ban2");
-  var ban3 = document.getElementById("img-ban3");
-  var dot1 = document.querySelector(".one");
-  var dot2 = document.querySelector(".two");
-  var dot3 = document.querySelector(".three");
+  let bannerStatus = 1;
+  let bannerTimer = 5000;
+  let ban1 = document.getElementById("img-ban1");
+  let ban2 = document.getElementById("img-ban2");
+  let ban3 = document.getElementById("img-ban3");
+  let dot1 = document.querySelector(".one");
+  let dot2 = document.querySelector(".two");
+  let dot3 = document.querySelector(".three");
 
 window.onload = function () {
       bannerLoop();
   }
    
-  var startBannerLoop = setInterval(function () {
+  let startBannerLoop = setInterval(function () {
       bannerLoop();
   }, bannerTimer);
 
@@ -127,7 +127,7 @@ dot3.onclick = function(){
 //about button
 let buttonAbout = document.getElementById("about-button");
 buttonAbout.addEventListener("click", function(){
-    var moreTekst = document.querySelector(".about-more-text");
+    let moreTekst = document.querySelector(".about-more-text");
     moreTekst.style.display = "block";
     buttonAbout.style.display = "none";
 })

@@ -341,7 +341,7 @@ letter-spacing: 0.9px;
 
 /*about us content*/
 .about-us-content{
-    margin-top:60px;
+    margin-top:90px;
     width:100%;
     height:100%;
     display:flex;
@@ -410,8 +410,13 @@ letter-spacing: 2px;
 }
 .about-us-content .about-more-text{
    display:none; 
+    background:transparent;
 }
-
+.test{
+    width:100%;
+    height:100vh;
+    background-color:black;
+}
 /* MEDIA */
 @media only screen and (max-width:320px) {
     .header .header-content .header-content-main .p-header-one {
