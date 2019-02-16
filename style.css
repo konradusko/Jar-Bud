@@ -419,8 +419,7 @@ letter-spacing: 2px;
     margin-top:50px;
     flex-direction: column;
     display:flex;
- 
- 
+
 }
 .projects-pro{
     flex:3;
@@ -589,7 +588,7 @@ height:400px;
     z-index: 3;
 flex:1;
     display:flex;
-    margin-top:100px;
+   margin:100px auto 50px auto;
     flex-direction: column;
 }
 .projects .projects-logo .projects-logo-box{
@@ -614,14 +613,6 @@ height: 6px;
 background-color: #7b6c63;
 }
 /* MEDIA */
-@media only screen and (max-width:320px) {
-    .header .header-content .header-content-main .p-header-one {
-        font-size: 14px;
-    }
-    .about-us-top h1{
-        font-size:25px;
-    }
-}
 
 @media only screen and (max-width:600px) {
     .header .header-content .header-content-main p {
@@ -758,8 +749,44 @@ background-color: #7b6c63;
 @media only screen and (max-width:975px){
     .projects-pro .projects-pro-box{
         flex-direction: column;
-        height:160vh;
+        height:100%;
     }
+    .glob-content{
+    width:100%;
+height:100%;
+    display:none;
+    margin:auto;
+   z-index: 2;  
+    background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4);
+            font-size: 12px;
+}
+.glob-content p{
+    flex:1;
+    padding:5px;
+    margin:auto;
+    color:white;
+}
+.glob-content ul{
+    flex:1;
+display:flex;
+    flex-direction: column;
+    margin:auto auto auto 15px;
+    padding:5px;
+    color:white;;
+}
+.glob-content li{
+    padding:5px;
+}
+    .projects .projects-logo {
+   margin:auto;
+}
+.projects .projects-logo .projects-logo-box{
+   width:100%;
+    height:100px;
+
+}
+
 }
 @media only screen and (max-width:1032px) {
     .nav-container {
@@ -770,5 +797,19 @@ background-color: #7b6c63;
 @media only screen and (max-width:1115px) {
     .nav .nav-container .nav-menu {
         flex: 2;
+    }
+}
+@media only screen and (max-width:320px) {
+    .header .header-content .header-content-main .p-header-one {
+        font-size: 14px;
+    }
+    .about-us-top h1{
+        font-size:25px;
+    }
+    .projects .projects-logo{
+        margin:10px auto 100px auto;
+    }
+    .projects .projects-logo h3{
+        font-size:22px;
     }
 }
