@@ -134,3 +134,15 @@ buttonAbout.addEventListener("click", function(){
     backgText.classList.remove = "text";
     backgText.classList.add = "text-on";
 })
+// projects
+/*
+let box1 = document.getElementById("box1");
+let box2 = document.getElementById("box2");
+let box3 = document.getElementById("box3");
+box1.addEventListener("mouseenter", () =>{
+   box1.classList.add("box-active-big");
+})
+box1.addEventListener("onmouseout", () =>{
+    box1.classList.remove("box-active-big");
+    console.log("x");
+}) */
