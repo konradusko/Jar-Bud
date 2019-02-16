@@ -501,6 +501,26 @@ height:400px;
    z-index: 2;  
     background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.4);
+    animation-name:anime;
+    animation-duration: 2s;
+         animation-iteration-count:1;
+}
+@keyframes anime{
+    0%{
+        opacity:0;
+    }
+    20%{
+        opacity:0;
+    }
+    40%{
+        opacity: .3;
+    }
+    60%{
+        opacity.7;
+    }
+    100%{
+        opacity:1;
+    }
 }
 .glob-content p{
     flex:1;
@@ -531,12 +551,14 @@ height:400px;
     display: flex;
     position: relative;
 }
+
 .box-two:hover{
     transition: flex 1s;
     flex:4;
 }
 .box-two:hover .glob-content{
     display:flex;
+    
 }
 .box-two:hover .glob-title{
     display:none;
@@ -812,4 +834,5 @@ display:flex;
     .projects .projects-logo h3{
         font-size:22px;
     }
+   
 }
