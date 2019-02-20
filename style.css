@@ -714,12 +714,7 @@ font-weight: 700;
     background-color: #7b6c63;
 
 }
-.gallery-off{
-    display:none;
-}
-.gallery-on{
-    display:block;
-}
+
 .gallery-img-container img{
     margin:5px;
     height:300px;

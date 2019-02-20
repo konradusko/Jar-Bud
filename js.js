@@ -164,53 +164,71 @@ elewacje.addEventListener("click", () =>{
 ogrody.addEventListener("click", () =>{
      gallery_number = 3;
         event1();
+    
 });
 
 function event1(){
     switch(gallery_number){
         case 0:
        for (let i = 0; i <= 4; i++){
-        elewacje_Images[i].classList.add("gallery-on");
+        elewacje_Images[i].style.display = "block";
                 }
         for (let i=0; i<=5; i++){
-        wnetrza_Images[i].classList.add("gallery-on");
+        wnetrza_Images[i].style.display = "block";
                }
         for (let j=0; j<=6; j++){
-        ogrody_Images[j].classList.add("gallery-on");
+        ogrody_Images[j].style.display = "block";
     }
+            wszystkie.classList.add("gallery-active");
+            ogrody.classList.remove("gallery-active");
+            wnetrza.classList.remove("gallery-active");
+            elewacje.classList.remove("gallery-active");
             break;
         case 1:
              for (let i=0; i<=5; i++){
-        wnetrza_Images[i].classList.add("gallery-on");
+        wnetrza_Images[i].style.display = "block";
                }
                   for (let j=0; j<=6; j++){
-        ogrody_Images[j].classList.add("gallery-off");
+        ogrody_Images[j].style.display = "none";
     }
              for (let i = 0; i <= 4; i++){
-        elewacje_Images[i].classList.add("gallery-off");
+        elewacje_Images[i].style.display = "none";
                 }
+              wnetrza.classList.add("gallery-active");
+            ogrody.classList.remove("gallery-active");
+            wszystkie.classList.remove("gallery-active");
+            elewacje.classList.remove("gallery-active");
             break;
         case 2:
                 for (let i = 0; i <= 4; i++){
-        elewacje_Images[i].classList.add("gallery-on");
+        elewacje_Images[i].style.display = "block";
                 }
                  for (let j=0; j<=6; j++){
-        ogrody_Images[j].classList.add("gallery-off");
+        ogrody_Images[j].style.display = "none";
     }
                   for (let i=0; i<=5; i++){
-        wnetrza_Images[i].classList.add("gallery-off");
+        wnetrza_Images[i].style.display = "none";
                }
+              elewacje.classList.add("gallery-active");
+            ogrody.classList.remove("gallery-active");
+            wnetrza.classList.remove("gallery-active");
+            wszystkie.classList.remove("gallery-active");
             break;
         case 3:
             for (let j=0; j<=6; j++){
-        ogrody_Images[j].classList.add("gallery-on");
+        ogrody_Images[j].style.display = "block";
     }
             for (let i=0; i<=5; i++){
-        wnetrza_Images[i].classList.add("gallery-off");
+        wnetrza_Images[i].style.display = "none";
                }
             for (let i = 0; i <= 4; i++){
-        elewacje_Images[i].classList.add("gallery-off");
+        elewacje_Images[i].style.display = "none";
                 }
+              ogrody.classList.add("gallery-active");
+            wszystkie.classList.remove("gallery-active");
+            wnetrza.classList.remove("gallery-active");
+            elewacje.classList.remove("gallery-active");
+            break;
  }
     
 }
