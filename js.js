@@ -134,3 +134,84 @@ buttonAbout.addEventListener("click", function(){
     backgText.classList.remove = "text";
     backgText.classList.add = "text-on";
 })
+// gallery buttons
+let wszystkie = document.getElementById("Wszystkie");
+let wnetrza = document.getElementById("Wnetrza");
+let elewacje = document.getElementById("Elewacje");
+let ogrody = document.getElementById("Ogrody");
+
+let wnetrza_Images = document.querySelectorAll(".wnetrza");
+let elewacje_Images = document.querySelectorAll(".Elewacje");
+let ogrody_Images = document.querySelectorAll(".ogrod");
+
+
+ let gallery_number = 0;
+
+
+wszystkie.addEventListener("click", () =>{
+     gallery_number = 0;
+        event1();
+    
+});
+wnetrza.addEventListener("click", () =>{
+    gallery_number = 1;
+        event1();
+});
+elewacje.addEventListener("click", () =>{
+     gallery_number = 2;
+    event1();
+});
+ogrody.addEventListener("click", () =>{
+     gallery_number = 3;
+        event1();
+});
+
+function event1(){
+    switch(gallery_number){
+        case 0:
+       for (let i = 0; i <= 4; i++){
+        elewacje_Images[i].classList.add("gallery-on");
+                }
+        for (let i=0; i<=5; i++){
+        wnetrza_Images[i].classList.add("gallery-on");
+               }
+        for (let j=0; j<=6; j++){
+        ogrody_Images[j].classList.add("gallery-on");
+    }
+            break;
+        case 1:
+             for (let i=0; i<=5; i++){
+        wnetrza_Images[i].classList.add("gallery-on");
+               }
+                  for (let j=0; j<=6; j++){
+        ogrody_Images[j].classList.add("gallery-off");
+    }
+             for (let i = 0; i <= 4; i++){
+        elewacje_Images[i].classList.add("gallery-off");
+                }
+            break;
+        case 2:
+                for (let i = 0; i <= 4; i++){
+        elewacje_Images[i].classList.add("gallery-on");
+                }
+                 for (let j=0; j<=6; j++){
+        ogrody_Images[j].classList.add("gallery-off");
+    }
+                  for (let i=0; i<=5; i++){
+        wnetrza_Images[i].classList.add("gallery-off");
+               }
+            break;
+        case 3:
+            for (let j=0; j<=6; j++){
+        ogrody_Images[j].classList.add("gallery-on");
+    }
+            for (let i=0; i<=5; i++){
+        wnetrza_Images[i].classList.add("gallery-off");
+               }
+            for (let i = 0; i <= 4; i++){
+        elewacje_Images[i].classList.add("gallery-off");
+                }
+ }
+    
+}
+
