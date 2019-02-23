@@ -244,7 +244,6 @@
       let obiekt5 = event.target.children;
 
       if (obiekt) {
-          console.log("xd");
           images_onclick.classList.add("image-on-click");
           button_images.classList.add("button-active");
           body.classList.add("body-no-scroll");
@@ -265,12 +264,14 @@
           } else {
               obiekt5[0].classList.remove("image-on-click");
               obiekt5[0].classList.add("glob-img");
-              body.classList.remove("body-no-scroll");
+            
               images_onclick.classList.remove("background-fixed");
                 images_onclick.classList.remove("button-active");
+          
               if(body.className === "body-no-scroll"){
-                    images_onclick.removeChild(button_images);
+                        images_onclick.removeChild(button_images);
               }
+                body.classList.remove("body-no-scroll");
           }
       }
   })
