@@ -140,7 +140,6 @@
   let wnetrza = document.getElementById("Wnetrza");
   let elewacje = document.getElementById("Elewacje");
   let ogrody = document.getElementById("Ogrody");
-
   let wnetrza_Images = document.querySelectorAll(".wnetrza");
   let elewacje_Images = document.querySelectorAll(".Elewacje");
   let ogrody_Images = document.querySelectorAll(".ogrod");
@@ -170,13 +169,13 @@
       switch (gallery_number) {
           case 0:
               for (let i = 0; i <= 4; i++) {
-                  elewacje_Images[i].style.display = "block";
+                  elewacje_Images[i].style.display = "flex";
               }
               for (let i = 0; i <= 5; i++) {
-                  wnetrza_Images[i].style.display = "block";
+                  wnetrza_Images[i].style.display = "flex";
               }
               for (let j = 0; j <= 6; j++) {
-                  ogrody_Images[j].style.display = "block";
+                  ogrody_Images[j].style.display = "flex";
               }
               wszystkie.classList.add("gallery-active");
               ogrody.classList.remove("gallery-active");
@@ -185,7 +184,7 @@
               break;
           case 1:
               for (let i = 0; i <= 5; i++) {
-                  wnetrza_Images[i].style.display = "block";
+                  wnetrza_Images[i].style.display = "flex";
               }
               for (let j = 0; j <= 6; j++) {
                   ogrody_Images[j].style.display = "none";
@@ -200,7 +199,7 @@
               break;
           case 2:
               for (let i = 0; i <= 4; i++) {
-                  elewacje_Images[i].style.display = "block";
+                  elewacje_Images[i].style.display = "flex";
               }
               for (let j = 0; j <= 6; j++) {
                   ogrody_Images[j].style.display = "none";
@@ -215,7 +214,7 @@
               break;
           case 3:
               for (let j = 0; j <= 6; j++) {
-                  ogrody_Images[j].style.display = "block";
+                  ogrody_Images[j].style.display = "flex";
               }
               for (let i = 0; i <= 5; i++) {
                   wnetrza_Images[i].style.display = "none";
@@ -230,43 +229,48 @@
               break;
       }
   }
-  // testuje sobie 
+  // Gallery img 
 
 
-      let body = document.getElementById("body");
-      let button_images = document.getElementById("button-images");
-
-
+  let body = document.getElementById("body");
+  let button_images = document.getElementById("button-images");
   document.addEventListener("click", function (event) {
-            let container = document.createElement("div");
-          let obiekt = event.target.classList.contains("glob-img");
+      let obiekt = event.target.classList.contains("glob-img");
       let obiekt2 = event.target.classList.contains("image-on-click");
-            let background_images = event.target.parentElement;
+      let background_images = event.target.parentElement;
       let images_onclick = event.target;
+      let obiekt3 = event.target.classList.contains("background-after-images");
+      let obiekt4 = event.target.classList.contains("button-span");
+      let obiekt5 = event.target.children;
+
       if (obiekt) {
           console.log("xd");
+          images_onclick.classList.add("image-on-click");
           button_images.classList.add("button-active");
-          container.className = "background-after-images";
           body.classList.add("body-no-scroll");
           background_images.classList.add("background-fixed");
-          background_images.appendChild(container);
-          images_onclick.classList.add("image-on-click");
+          background_images.appendChild(button_images);
           images_onclick.classList.remove("glob-img");
 
-      } else if (button_images.className === "button button-active") {
-          console.log("błagam dzialaj");
-          if (obiekt2) {
-              console.log("błagam dzialaj2222222");
-          } else {
-           container.classList.remove("background-after-images");
-              body.classList.remove("body-no-scroll");
+      } else if (obiekt5) {
+          if (obiekt4 || obiekt5.length == "3") {
               background_images.classList.remove("background-fixed");
-              background_images.remove(container);
-                            images_onclick.classList.add("glob-img");
-              images_onclick.classList.remove("image-on-click");
-                 button_images.classList.remove("button-active");
+              background_images.removeChild(button_images);
+              background_images .classList.remove("button-active");
+              background_images.firstElementChild.classList.remove("image-on-click");
+              background_images.firstElementChild.classList.add("glob-img");
+              body.classList.remove("body-no-scroll");
+          } else if (obiekt5.length == "0") {
 
+          } else {
+              obiekt5[0].classList.remove("image-on-click");
+              obiekt5[0].classList.add("glob-img");
+              body.classList.remove("body-no-scroll");
+              images_onclick.classList.remove("background-fixed");
+                images_onclick.classList.remove("button-active");
+              if(body.className === "body-no-scroll"){
+                    images_onclick.removeChild(button_images);
+              }
           }
-
       }
   })
