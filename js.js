@@ -278,21 +278,12 @@
 
   })
   // mobile gallery
+  function testNR12(e) {
+      let galleryContainer = document.getElementById("gallery-container");
 
 
-  let galleryContainer = document.getElementById("gallery-container");
 
-
-    galleryContainer.addEventListener("touchstart", (e) => {
-      let touchstart = e.targetTouches[0].pageX;
-        console.log(touchstart);
-        testowa();
-        return(touchstart);
-    })
-
-
-      function testowa(e){
-            console.log("xd");
+      console.log("xd");
       let sliderTableElement = {
           el: {
               image_container: document.querySelector(".img-container"),
@@ -307,27 +298,57 @@
           init: function () {
               this.bindEvents();
           },
-          bindEvents: function() {
-            
-              galleryContainer.addEventListener("touchmove", function (e) {
-                 // slider.move(event);
-                  console.log("xdddd");
+          bindEvents: function () {
+              galleryContainer.addEventListener("touchstart", (e) => {
+                  let touchstart = e.targetTouches[0].pageX;
+                  console.log(touchstart + "start");
+                  sliderTableElement.start(e);
+              })
+              galleryContainer.addEventListener("touchmove", (e) => {
+
+                  console.log("move");
+                  sliderTableElement.move(e);
               });
-              galleryContainer.addEventListener("touchend", function (e) {
-                  //slider.end(event);
-                   console.log("xdddd22222222");
+              galleryContainer.addEventListener("touchend", (e) => {
+                  sliderTableElement.end(e);
+                  console.log("end");
+
               });
-}
+          },
+          start: function (e) {
+              this.longTouch = false;
+              setTimeout(function () {
+                 sliderTableElement.longTouch = true;
+              }, 250);
+              this.touchStartx = e.targetTouches[0].pageX;
+          },
+          move: function(e){
+              
+          },
+          end: function(e){
+              
+          }
       }
       sliderTableElement.bindEvents();
-      }
-          
-          
-          
-          
-          
-          
-        /*
+
+
+
+  }
+
+
+
+
+
+
+
+  testNR12();
+
+
+
+
+
+
+  /*
         let borderLeft = 0,
             borderRight = 1000;
 
@@ -366,14 +387,3 @@
   }
 
   */
-
-
-
-
-
-
-
-
-
-
-
