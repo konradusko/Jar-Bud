@@ -235,43 +235,145 @@
   let body = document.getElementById("body");
   let button_images = document.getElementById("button-images");
   document.addEventListener("click", function (event) {
-      let obiekt = event.target.classList.contains("glob-img");
-      let obiekt2 = event.target.classList.contains("image-on-click");
-      let background_images = event.target.parentElement;
-      let images_onclick = event.target;
-      let obiekt3 = event.target.classList.contains("background-after-images");
-      let obiekt4 = event.target.classList.contains("button-span");
-      let obiekt5 = event.target.children;
+      if (window.screen.width > 450) {
+          let obiekt = event.target.classList.contains("glob-img");
+          let obiekt2 = event.target.classList.contains("image-on-click");
+          let background_images = event.target.parentElement;
+          let images_onclick = event.target;
+          let obiekt3 = event.target.classList.contains("background-after-images");
+          let obiekt4 = event.target.classList.contains("button-span");
+          let obiekt5 = event.target.children;
 
-      if (obiekt) {
-          images_onclick.classList.add("image-on-click");
-          button_images.classList.add("button-active");
-          body.classList.add("body-no-scroll");
-          background_images.classList.add("background-fixed");
-          background_images.appendChild(button_images);
-          images_onclick.classList.remove("glob-img");
+          if (obiekt) {
+              images_onclick.classList.add("image-on-click");
+              button_images.classList.add("button-active");
+              body.classList.add("body-no-scroll");
+              background_images.classList.add("background-fixed");
+              background_images.appendChild(button_images);
+              images_onclick.classList.remove("glob-img");
 
-      } else if (obiekt5) {
-          if (obiekt4 || obiekt5.length == "3") {
-              background_images.classList.remove("background-fixed");
-              background_images.removeChild(button_images);
-              background_images .classList.remove("button-active");
-              background_images.firstElementChild.classList.remove("image-on-click");
-              background_images.firstElementChild.classList.add("glob-img");
-              body.classList.remove("body-no-scroll");
-          } else if (obiekt5.length == "0") {
+          } else if (obiekt5) {
+              if (obiekt4 || obiekt5.length == "3") {
+                  background_images.classList.remove("background-fixed");
+                  background_images.removeChild(button_images);
+                  background_images.classList.remove("button-active");
+                  background_images.firstElementChild.classList.remove("image-on-click");
+                  background_images.firstElementChild.classList.add("glob-img");
+                  body.classList.remove("body-no-scroll");
+              } else if (obiekt5.length == "0") {
 
-          } else {
-              obiekt5[0].classList.remove("image-on-click");
-              obiekt5[0].classList.add("glob-img");
-            
-              images_onclick.classList.remove("background-fixed");
-                images_onclick.classList.remove("button-active");
-          
-              if(body.className === "body-no-scroll"){
-                        images_onclick.removeChild(button_images);
+              } else {
+                  obiekt5[0].classList.remove("image-on-click");
+                  obiekt5[0].classList.add("glob-img");
+                  images_onclick.classList.remove("background-fixed");
+                  images_onclick.classList.remove("button-active");
+
+                  if (body.className === "body-no-scroll") {
+                      images_onclick.removeChild(button_images);
+                  }
+                  body.classList.remove("body-no-scroll");
               }
-                body.classList.remove("body-no-scroll");
           }
       }
+
   })
+  // mobile gallery
+
+
+  let galleryContainer = document.getElementById("gallery-container");
+
+
+    galleryContainer.addEventListener("touchstart", (e) => {
+      let touchstart = e.targetTouches[0].pageX;
+        console.log(touchstart);
+        testowa();
+        return(touchstart);
+    })
+
+
+      function testowa(e){
+            console.log("xd");
+      let sliderTableElement = {
+          el: {
+              image_container: document.querySelector(".img-container"),
+          },
+          image_container_width: document.querySelector(".img-container").style.width,
+          touchStartx: undefined,
+          touchMovex: undefined,
+          moveX: undefined,
+          index: 0,
+          longTouch: undefined,
+
+          init: function () {
+              this.bindEvents();
+          },
+          bindEvents: function() {
+            
+              galleryContainer.addEventListener("touchmove", function (e) {
+                 // slider.move(event);
+                  console.log("xdddd");
+              });
+              galleryContainer.addEventListener("touchend", function (e) {
+                  //slider.end(event);
+                   console.log("xdddd22222222");
+              });
+}
+      }
+      sliderTableElement.bindEvents();
+      }
+          
+          
+          
+          
+          
+          
+        /*
+        let borderLeft = 0,
+            borderRight = 1000;
+
+        if (event.targetTouches.length == 1) {
+            let touch = e.targetTouches[0].pageX;
+                  let borderLeft = touch - window.screenX;
+           let borderRight = touch - touch;
+            console.log(borderLeft);
+            console.log(borderRight + "prawy");
+            if (touch < borderLeft) {
+                console.log("xd");
+            }
+            if (touch > borderRight) {
+                console.log("xd222222222222");
+            }   
+        }
+      
+  
+
+
+  document.addEventListener("onscroll", mytest)
+
+  function mytest() {
+    
+          start: function (event) {
+              this.longTouch = false;
+              setTimeout(function () {
+                  window.slider.longTouch = true;
+              }, 250);
+               this.touchStartx =  event.originalEvent.touches[0].pageX;
+              console.log(this.touchStartx);
+              galleryContainer.classList.remove("animate");
+
+          }
+      }
+  }
+
+  */
+
+
+
+
+
+
+
+
+
+
+
