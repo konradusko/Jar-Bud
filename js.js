@@ -286,9 +286,10 @@
       console.log("xd");
       let sliderTableElement = {
           el: {
-              image_container: document.querySelector(".img-container"),
+              image_container: document.querySelectorAll(".img-container"),
+              img_slide: document.querySelector(".glob-img"),
           },
-          image_container_width: document.querySelector(".img-container").style.width,
+          image_container_width: document.querySelector(".img-container").offsetWidth,
           touchStartx: undefined,
           touchMovex: undefined,
           moveX: undefined,
@@ -318,18 +319,51 @@
           start: function (e) {
               this.longTouch = false;
               setTimeout(function () {
-                 sliderTableElement.longTouch = true;
+                  sliderTableElement.longTouch = true;
               }, 250);
               this.touchStartx = e.targetTouches[0].pageX;
+              console.log(this.image_container_width);
           },
-          move: function(e){
-              
+          move: function (e) {
+              this.touchMovex = e.targetTouches[0].pageX;
+              this.moveX = this.index * this.image_container_width + (this.touchStartx - this.touchMovex);
+              let speed = 100 - this.moveX / 2;
+              /*
+              if(this.moveX < galleryContainer.offsetWidth){
+                  galleryContainer.style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)" )
+                  console.log("xdbalgajdziajalj")
+              }
+              */
+              if (speed < 100) {
+                  for (let i = 0; i <= 17; i++) {
+                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + speed + "px,0,0)");
+                  }
+
+              }
+              console.log(speed);
+              console.log(this.moveX);
           },
-          end: function(e){
-              
+          end: function (e) {
+              let distansSwiped = Math.abs(this.index * this.image_container_width - this.moveX);
+              console.log(distansSwiped);
+              if (distansSwiped > this.image_container_width / 2 || this.longTouch === false) {
+                  if (this.moveX < this.index * this.image_container_width && this.index < 2) {
+                      this.index++;
+                  } else if (this.moveX < this.index * this.image_container_width && this.index > 0) {
+                      this.index--;
+                  }
+              }
+          },
+        test :  function test(e){
+           for (let j = 0; j <= 17; j++) {
+              this.el.image_container[j].style.transform = ("translate", "translate3d(-" + 100-this.index*50 + "px,0,0)");
           }
       }
-      sliderTableElement.bindEvents();
+         
+
+      };
+       sliderTableElement.test();
+      sliderTableElement.init();
 
 
 
