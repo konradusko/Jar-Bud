@@ -279,16 +279,16 @@
   })
   // mobile gallery
 
-//function test(event){
-    
+  //function test(event){
 
-      let galleryContainer = document.getElementById("gallery-container");
-    //let obiekt_test = event.target.classList.contains("glob-img");
-    
-        
-if(navigator.msMaxTouchPoints){
-    
-}else{
+
+  let galleryContainer = document.getElementById("gallery-container");
+  //let obiekt_test = event.target.classList.contains("glob-img");
+
+
+  if (navigator.msMaxTouchPoints) {
+
+  } else {
 
 
       console.log("xd");
@@ -311,8 +311,8 @@ if(navigator.msMaxTouchPoints){
           },
           bindEvents: function (e) {
               galleryContainer.addEventListener("touchstart", (e) => {
-                  let touchstart = e.targetTouches[0].pageX;
-                  console.log(touchstart + "start");
+                  // let touchstart = e.targetTouches[0].pageX;
+                  ;
                   sliderTableElement.start(e);
               })
               galleryContainer.addEventListener("touchmove", (e) => {
@@ -327,17 +327,17 @@ if(navigator.msMaxTouchPoints){
               });
           },
           start: function (e) {
-              this.longTouch = false;
-              setTimeout(function () {
-                  sliderTableElement.longTouch = true;
-              }, 250);
+              //  this.longTouch = false;
+              //  setTimeout(function () {
+              //      sliderTableElement.longTouch = true;
+              //  }, 250);
               this.touchStartx = e.targetTouches[0].pageX;
               console.log(this.image_container_width);
           },
           move: function (e) {
               this.touchMovex = e.targetTouches[0].pageX;
               this.moveX = this.index * this.image_container_width + (this.touchStartx - this.touchMovex);
-            //  let speed = 100 - this.moveX / 6;
+              //  let speed = 100 - this.moveX / 6;
               galleryContainer.classList.add("animate-test");
               /*
               if(this.moveX < galleryContainer.offsetWidth){
@@ -348,61 +348,49 @@ if(navigator.msMaxTouchPoints){
               console.log(this.touchstartx2);
               //  console.log(speed + "");
               //   console.log(this.index);
-              console.log(this.moveX);
-              //  console.log(this.touchMovex + "o ile przesunelismy");
-              //  console.log(this.touchStartx + "miejsce w ktorym dotknelismy");
-              // console.log(this.image_container_width + "to cala szerokosc ekranu ");
-           /*   if (this.moveX < 1800) {
-                 for (let i = 0; i <= 17; i++) {
-                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
-                  }
+              console.log(this.moveX + "movex");
+           
+        if(this.index < 17){
+              for (let i = 0; i <= 17; i++) {
+                  this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
               }
-              if (speed < 100) {
-
-                  for (let i = 0; i <= 17; i++) {
-                      this.el.img_slide[i].style.transform = ("translate", "translate3d(-" + speed + "px,0,0)");
-                  }
-              }
-*/             for (let i = 0; i <= 17; i++) {
-                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
-                  }
+}
 
           },
           end: function (e) {
-           
+
               let distansSwiped = Math.abs(this.image_container_width - this.moveX);
               console.log(distansSwiped + "distansce");
-
-              if (this.touchMovex < this.touchStartx) {
+     if(this.index < 17){
+              if (this.touchMovex < this.touchStartx || this.index === 0) {
                   console.log("powinno pojsc w prwao");
 
                   for (let i = 0; i <= 17; i++) {
                       this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.image_container_width + "px,0,0)");
+                      console.log("INDEX ZZERO");
+                      
                   }
-                  console.log("xd");
+                    this.index++;
+                  } 
+              if (this.touchMovex < this.touchStartx || this.index != 0) {
+                      for (let i = 0; i <= 17; i++) {
+                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.image_container_width * this.index) + "px,0,0)");
+                          console.log("xd indexxxx");
+                      }
+                  }
+     }
 
-              }
-                  sliderTableElement.end2();
-              /* 
+
+              
             
-              if (distansSwiped > this.image_container_width / 2 || this.longTouch === false) {
-                  if (this.moveX < this.index * this.image_container_width && this.index < 2) {
-                      this.index++;
-                      console.log("index++");
-                  } else if (this.moveX < this.index * this.image_container_width && this.index > 0) {
-                      this.index--;
-                            console.log("index--");
-                  }
-              };
-                 for (let j = 0; j <= 17; j++) {
-              this.el.img_slide[j].style.transform = ("translate", "translate3d(-" + 300 + "px,0,0)");
-                     console.log("xd");
-          } */
+              sliderTableElement.end2();
+
+
 
           },
-          end2: function(e){
-                galleryContainer.classList.remove("animate-test");
-                  console.log("działa ? ");
+          end2: function (e) {
+              galleryContainer.classList.remove("animate-test");
+
           },
 
 
@@ -413,56 +401,7 @@ if(navigator.msMaxTouchPoints){
 
       sliderTableElement.init();
 
-
-          
-
-    }
-  
-
-//test();
+      console.log(sliderTableElement.index);
 
 
-
-
-
-
-
-  /*
-        let borderLeft = 0,
-            borderRight = 1000;
-
-        if (event.targetTouches.length == 1) {
-            let touch = e.targetTouches[0].pageX;
-                  let borderLeft = touch - window.screenX;
-           let borderRight = touch - touch;
-            console.log(borderLeft);
-            console.log(borderRight + "prawy");
-            if (touch < borderLeft) {
-                console.log("xd");
-            }
-            if (touch > borderRight) {
-                console.log("xd222222222222");
-            }   
-        }
-      
-  
-
-
-  document.addEventListener("onscroll", mytest)
-
-  function mytest() {
-    
-          start: function (event) {
-              this.longTouch = false;
-              setTimeout(function () {
-                  window.slider.longTouch = true;
-              }, 250);
-               this.touchStartx =  event.originalEvent.touches[0].pageX;
-              console.log(this.touchStartx);
-              galleryContainer.classList.remove("animate");
-
-          }
-      }
   }
-
-  */
