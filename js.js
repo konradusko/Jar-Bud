@@ -279,154 +279,91 @@
   })
   // mobile gallery
 
-  //function test(event){
+
 
 
   let galleryContainer = document.getElementById("gallery-container");
-  //let obiekt_test = event.target.classList.contains("glob-img");
-
-
   if (navigator.msMaxTouchPoints) {
 
   } else {
-
-
-      console.log("xd");
       let sliderTableElement = {
           el: {
               image_container: document.querySelectorAll(".img-container"),
-              img_slide: document.querySelectorAll(".glob-img"),
-
-
           },
           image_container_width: document.querySelector(".img-container").offsetWidth,
           touchStartx: undefined,
           touchMovex: undefined,
           moveX: undefined,
           index: 1,
-          longTouch: undefined,
-
           init: function () {
               this.bindEvents();
           },
           bindEvents: function (e) {
               galleryContainer.addEventListener("touchstart", (e) => {
-                  // let touchstart = e.targetTouches[0].pageX;
-                  ;
                   sliderTableElement.start(e);
-              })
+              });
               galleryContainer.addEventListener("touchmove", (e) => {
-
-                  console.log("move");
                   sliderTableElement.move(e);
               });
               galleryContainer.addEventListener("touchend", (e) => {
                   sliderTableElement.end(e);
-                  console.log("end");
 
               });
           },
           start: function (e) {
-              //  this.longTouch = false;
-              //  setTimeout(function () {
-              //      sliderTableElement.longTouch = true;
-              //  }, 250);
               this.touchStartx = e.targetTouches[0].pageX;
-              console.log(this.image_container_width);
           },
           move: function (e) {
               this.touchMovex = e.targetTouches[0].pageX;
-              this.moveX = (this.index-1) * this.image_container_width + (this.touchStartx - this.touchMovex);
-              //  let speed = 100 - this.moveX / 6;
+              this.moveX = (this.index - 1) * this.image_container_width + (this.touchStartx - this.touchMovex);
               galleryContainer.classList.add("animate-test");
-              /*
-              if(this.moveX < galleryContainer.offsetWidth){
-                  galleryContainer.style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)" )
-                
+              if (this.index < 18) {
+                  for (let i = 0; i <= 17; i++) {
+                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
+                  }
               }
-              */
-              console.log(this.touchStartx);
-              //  console.log(speed + "");
-              //   console.log(this.index);
-              console.log(this.moveX + "movex");
-           
-        if(this.index < 17){
-              for (let i = 0; i <= 17; i++) {
-                  this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
-              }
-}
-
+               if (this.touchMovex > this.touchStartx && this.index ===18) {
+                         for (let i = 0; i <= 17; i++) {
+                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
+                  }
+               }
           },
           end: function (e) {
 
-    
-            if (this.touchMovex < this.touchStartx && this.index > 1 && this.index <18) {
+              let aa = Math.abs((this.index - 1) * this.image_container_width - this.moveX)
+              if (aa > this.image_container_width / 2) {
+
+                  if (this.touchMovex < this.touchStartx && this.index > 1 && this.index < 18) {
                       for (let i = 0; i <= 17; i++) {
                           this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.image_container_width * this.index) + "px,0,0)");
-                          console.log("xd indexxxx");
                       }
-                  this.index++;
-                        console.log(sliderTableElement.index + "xd index lol");
-                  }else if (this.touchMovex < this.touchStartx && this.index === 1) {
-                  console.log("powinno pojsc w prwao");
-
-                  for (let i = 0; i <= 17; i++) {
-                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.image_container_width + "px,0,0)");
-                      console.log("INDEX ZZERO");
-                      
-                  }
-                    this.index++;
-                        console.log(sliderTableElement.index + "xd index lol");
-                  
-                  } 
-           if (this.touchMovex > this.touchStartx && this.index > 1) {
-                 
- 
+                      this.index++;
+                      console.log(sliderTableElement.index + "xd index lol");
+                  } else if (this.touchMovex < this.touchStartx && this.index === 1) {
 
                       for (let i = 0; i <= 17; i++) {
-                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.image_container_width * (this.index-2) + "px,0,0)");
-                          console.log("xd indexxxx LEWO");
+                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.image_container_width + "px,0,0)");
                       }
-               this.index--;
- console.log(sliderTableElement.index + "xd index lol");
-                      
-                  }/*else if (this.touchMovex > this.touchStartx && this.index === 1) {
-                  console.log("powinno pojsc w prwao");
-
-                  for (let i = 0; i <= 17; i++) {
-                      this.el.image_container[i].style.transform = ("translate", "translate3d(" + this.image_container_width + "px,0,0)");
-                      console.log("INDEX ZZERO LEWO");
-                      
+                      this.index++;
                   }
-                    this.index--;
-                        console.log(sliderTableElement.index + "xd index lol");
-                  
-                  } */ 
-           
-     
-
-
-              
-            
+                  if (this.touchMovex > this.touchStartx && this.index > 1) {
+                      for (let i = 0; i <= 17; i++) {
+                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.image_container_width * (this.index - 2) + "px,0,0)");
+                      }
+                      this.index--;
+                  }
+              }else {
+                  for (let i = 0; i <= 17; i++) {
+                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.index - 1) * this.image_container_width + "px,0,0)");
+                  }
+              }
               sliderTableElement.end2();
-
-
-
           },
           end2: function (e) {
               galleryContainer.classList.remove("animate-test");
 
           },
-
-
       }
 
-
-
-
       sliderTableElement.init();
-
-      console.log(sliderTableElement.index + "xd index lol");
-
-
   }
