@@ -278,16 +278,26 @@
 
   })
   // mobile gallery
-  function testNR12(e) {
-      let galleryContainer = document.getElementById("gallery-container");
 
+//function test(event){
+    
+
+      let galleryContainer = document.getElementById("gallery-container");
+    //let obiekt_test = event.target.classList.contains("glob-img");
+    
+        
+if(navigator.msMaxTouchPoints){
+    
+}else{
 
 
       console.log("xd");
       let sliderTableElement = {
           el: {
               image_container: document.querySelectorAll(".img-container"),
-              img_slide: document.querySelector(".glob-img"),
+              img_slide: document.querySelectorAll(".glob-img"),
+
+
           },
           image_container_width: document.querySelector(".img-container").offsetWidth,
           touchStartx: undefined,
@@ -299,7 +309,7 @@
           init: function () {
               this.bindEvents();
           },
-          bindEvents: function () {
+          bindEvents: function (e) {
               galleryContainer.addEventListener("touchstart", (e) => {
                   let touchstart = e.targetTouches[0].pageX;
                   console.log(touchstart + "start");
@@ -327,55 +337,90 @@
           move: function (e) {
               this.touchMovex = e.targetTouches[0].pageX;
               this.moveX = this.index * this.image_container_width + (this.touchStartx - this.touchMovex);
-              let speed = 100 - this.moveX / 2;
+            //  let speed = 100 - this.moveX / 6;
+              galleryContainer.classList.add("animate-test");
               /*
               if(this.moveX < galleryContainer.offsetWidth){
                   galleryContainer.style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)" )
-                  console.log("xdbalgajdziajalj")
+                
               }
               */
+              console.log(this.touchstartx2);
+              //  console.log(speed + "");
+              //   console.log(this.index);
+              console.log(this.moveX);
+              //  console.log(this.touchMovex + "o ile przesunelismy");
+              //  console.log(this.touchStartx + "miejsce w ktorym dotknelismy");
+              // console.log(this.image_container_width + "to cala szerokosc ekranu ");
+           /*   if (this.moveX < 1800) {
+                 for (let i = 0; i <= 17; i++) {
+                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
+                  }
+              }
               if (speed < 100) {
+
                   for (let i = 0; i <= 17; i++) {
-                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + speed + "px,0,0)");
+                      this.el.img_slide[i].style.transform = ("translate", "translate3d(-" + speed + "px,0,0)");
+                  }
+              }
+*/             for (let i = 0; i <= 17; i++) {
+                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
                   }
 
-              }
-              console.log(speed);
-              console.log(this.moveX);
           },
           end: function (e) {
-              let distansSwiped = Math.abs(this.index * this.image_container_width - this.moveX);
-              console.log(distansSwiped);
+           
+              let distansSwiped = Math.abs(this.image_container_width - this.moveX);
+              console.log(distansSwiped + "distansce");
+
+              if (this.touchMovex < this.touchStartx) {
+                  console.log("powinno pojsc w prwao");
+
+                  for (let i = 0; i <= 17; i++) {
+                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.image_container_width + "px,0,0)");
+                  }
+                  console.log("xd");
+
+              }
+                  sliderTableElement.end2();
+              /* 
+            
               if (distansSwiped > this.image_container_width / 2 || this.longTouch === false) {
                   if (this.moveX < this.index * this.image_container_width && this.index < 2) {
                       this.index++;
+                      console.log("index++");
                   } else if (this.moveX < this.index * this.image_container_width && this.index > 0) {
                       this.index--;
+                            console.log("index--");
                   }
-              }
-          },
-        test :  function test(e){
-           for (let j = 0; j <= 17; j++) {
-              this.el.image_container[j].style.transform = ("translate", "translate3d(-" + 100-this.index*50 + "px,0,0)");
-          }
-      }
-         
+              };
+                 for (let j = 0; j <= 17; j++) {
+              this.el.img_slide[j].style.transform = ("translate", "translate3d(-" + 300 + "px,0,0)");
+                     console.log("xd");
+          } */
 
-      };
-       sliderTableElement.test();
+          },
+          end2: function(e){
+                galleryContainer.classList.remove("animate-test");
+                  console.log("działa ? ");
+          },
+
+
+      }
+
+
+
+
       sliderTableElement.init();
 
 
+          
 
-  }
+    }
+  
 
+//test();
 
-
-
-
-
-
-  testNR12();
 
 
 
