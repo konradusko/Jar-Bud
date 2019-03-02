@@ -303,7 +303,7 @@
           touchStartx: undefined,
           touchMovex: undefined,
           moveX: undefined,
-          index: 0,
+          index: 1,
           longTouch: undefined,
 
           init: function () {
@@ -336,7 +336,7 @@
           },
           move: function (e) {
               this.touchMovex = e.targetTouches[0].pageX;
-              this.moveX = this.index * this.image_container_width + (this.touchStartx - this.touchMovex);
+              this.moveX = (this.index-1) * this.image_container_width + (this.touchStartx - this.touchMovex);
               //  let speed = 100 - this.moveX / 6;
               galleryContainer.classList.add("animate-test");
               /*
@@ -345,7 +345,7 @@
                 
               }
               */
-              console.log(this.touchstartx2);
+              console.log(this.touchStartx);
               //  console.log(speed + "");
               //   console.log(this.index);
               console.log(this.moveX + "movex");
@@ -359,10 +359,15 @@
           },
           end: function (e) {
 
-              let distansSwiped = Math.abs(this.image_container_width - this.moveX);
-              console.log(distansSwiped + "distansce");
-     if(this.index < 17){
-              if (this.touchMovex < this.touchStartx || this.index === 0) {
+    
+            if (this.touchMovex < this.touchStartx && this.index > 1 && this.index <18) {
+                      for (let i = 0; i <= 17; i++) {
+                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.image_container_width * this.index) + "px,0,0)");
+                          console.log("xd indexxxx");
+                      }
+                  this.index++;
+                        console.log(sliderTableElement.index + "xd index lol");
+                  }else if (this.touchMovex < this.touchStartx && this.index === 1) {
                   console.log("powinno pojsc w prwao");
 
                   for (let i = 0; i <= 17; i++) {
@@ -371,14 +376,34 @@
                       
                   }
                     this.index++;
+                        console.log(sliderTableElement.index + "xd index lol");
+                  
                   } 
-              if (this.touchMovex < this.touchStartx || this.index != 0) {
+           if (this.touchMovex > this.touchStartx && this.index > 1) {
+                 
+ 
+
                       for (let i = 0; i <= 17; i++) {
-                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.image_container_width * this.index) + "px,0,0)");
-                          console.log("xd indexxxx");
+                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.image_container_width * (this.index-2) + "px,0,0)");
+                          console.log("xd indexxxx LEWO");
                       }
+               this.index--;
+ console.log(sliderTableElement.index + "xd index lol");
+                      
+                  }/*else if (this.touchMovex > this.touchStartx && this.index === 1) {
+                  console.log("powinno pojsc w prwao");
+
+                  for (let i = 0; i <= 17; i++) {
+                      this.el.image_container[i].style.transform = ("translate", "translate3d(" + this.image_container_width + "px,0,0)");
+                      console.log("INDEX ZZERO LEWO");
+                      
                   }
-     }
+                    this.index--;
+                        console.log(sliderTableElement.index + "xd index lol");
+                  
+                  } */ 
+           
+     
 
 
               
@@ -401,7 +426,7 @@
 
       sliderTableElement.init();
 
-      console.log(sliderTableElement.index);
+      console.log(sliderTableElement.index + "xd index lol");
 
 
   }

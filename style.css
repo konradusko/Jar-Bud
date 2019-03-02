@@ -783,6 +783,7 @@ cursor:default;
         overflow-x: hidden;
         overflow-y: hidden;
 
+
     }
     .animate-test{
                 overflow-x: scroll;
@@ -798,6 +799,7 @@ cursor:default;
         margin:0;
         width:inherit;
         min-width:100%;
+           transition: transform 0.3s ease-out;
 
         
     }
@@ -805,6 +807,7 @@ cursor:default;
            width:inherit;
      width:100%;
         height:100%;
+
      
     }
 }
