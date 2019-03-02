@@ -231,10 +231,10 @@
   }
   // Gallery img 
 
-
+  let img_container_for_big_pictures = document.getElementById("gallery-container");
   let body = document.getElementById("body");
   let button_images = document.getElementById("button-images");
-  document.addEventListener("click", function (event) {
+  img_container_for_big_pictures.addEventListener("click", function (event) {
       if (window.screen.width > 450) {
           let obiekt = event.target.classList.contains("glob-img");
           let obiekt2 = event.target.classList.contains("image-on-click");
@@ -281,7 +281,6 @@
 
 
 
-
   let galleryContainer = document.getElementById("gallery-container");
   if (navigator.msMaxTouchPoints) {
 
@@ -316,29 +315,28 @@
           move: function (e) {
               this.touchMovex = e.targetTouches[0].pageX;
               this.moveX = (this.index - 1) * this.image_container_width + (this.touchStartx - this.touchMovex);
-              galleryContainer.classList.add("animate-test");
+              galleryContainer.classList.add("animatee");
               if (this.index < 18) {
                   for (let i = 0; i <= 17; i++) {
                       this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
                   }
               }
-               if (this.touchMovex > this.touchStartx && this.index ===18) {
-                         for (let i = 0; i <= 17; i++) {
+              if (this.touchMovex > this.touchStartx && this.index === 18) {
+                  for (let i = 0; i <= 17; i++) {
                       this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
                   }
-               }
+              }
           },
           end: function (e) {
 
-              let aa = Math.abs((this.index - 1) * this.image_container_width - this.moveX)
-              if (aa > this.image_container_width / 2) {
+              let distance = Math.abs((this.index - 1) * this.image_container_width - this.moveX)
+              if (distance > this.image_container_width / 3) {
 
                   if (this.touchMovex < this.touchStartx && this.index > 1 && this.index < 18) {
                       for (let i = 0; i <= 17; i++) {
                           this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.image_container_width * this.index) + "px,0,0)");
                       }
                       this.index++;
-                      console.log(sliderTableElement.index + "xd index lol");
                   } else if (this.touchMovex < this.touchStartx && this.index === 1) {
 
                       for (let i = 0; i <= 17; i++) {
@@ -352,7 +350,7 @@
                       }
                       this.index--;
                   }
-              }else {
+              } else {
                   for (let i = 0; i <= 17; i++) {
                       this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.index - 1) * this.image_container_width + "px,0,0)");
                   }
@@ -360,10 +358,11 @@
               sliderTableElement.end2();
           },
           end2: function (e) {
-              galleryContainer.classList.remove("animate-test");
+              galleryContainer.classList.remove("animatee");
 
           },
       }
 
       sliderTableElement.init();
   }
+

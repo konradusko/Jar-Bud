@@ -684,11 +684,13 @@ font-weight: 700;
     width:400px;
     cursor:pointer;
     background:transparent;
+
 }
 .gallery-img-container .img-container .glob-img{
     height:300px;
     width:400px;
     transition:1s ease-in-out;
+   
 }
 .gallery-img-container .img-container .glob-img:hover{
    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4), 0 8px 28px 0 rgba(0, 0, 0, 0.29);
@@ -785,7 +787,7 @@ cursor:default;
 
 
     }
-    .animate-test{
+    .animatee{
                 overflow-x: scroll;
         overflow-y: hidden;
                 -ms-overflow-style: none;
