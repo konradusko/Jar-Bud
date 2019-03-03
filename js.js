@@ -243,7 +243,7 @@
   let image_contain = document.querySelectorAll(".img-container");
   let body = document.getElementById("body");
   let button_images = document.getElementById("button-images");
-galleryContainer.addEventListener("click", function (event) {
+  galleryContainer.addEventListener("click", function (event) {
       if (window.screen.width > 450) {
           let obiekt = event.target.classList.contains("glob-img");
           let obiekt2 = event.target.classList.contains("image-on-click");
@@ -289,35 +289,35 @@ galleryContainer.addEventListener("click", function (event) {
   })
   // mobile gallery
 
-let number_of_image = document.getElementById("number-of-img");
+  let number_of_image = document.getElementById("number-of-img");
   let index = 1;
 
 
   function translate() {
       if (window.screen.width < 450) {
-         galleryContainer.style.width = numberOfSlide + 1 + "00%";
-  
+          galleryContainer.style.width = numberOfSlide + 1 + "00%";
+
           for (let i = 0; i <= 17; i++) {
               image_contain[i].style.transform = ("translate", "translate3d(+" + 0 + "px,0,0)");
           }
           index = 1;
-            number_of_image.innerHTML = index + "/" + (numberOfSlide+1);
+          number_of_image.innerHTML = index + "/" + (numberOfSlide + 1);
       }
   }
-window.addEventListener("resize", () =>{
-  if (window.screen.width > 450) {
-   for (let i = 0; i <= 17; i++) {
+  window.addEventListener("resize", () => {
+      if (window.screen.width > 450) {
+          for (let i = 0; i <= 17; i++) {
               image_contain[i].style.transform = ("translate", "translate3d(+" + 0 + "px,0,0)");
           }
           galleryContainer.classList.remove("animatee");
-      galleryContainer.style.width = 100 + "%";
-      index = 1;
-        number_of_image.innerHTML = index + "/" + (numberOfSlide+1);
-  }
-})
+          galleryContainer.style.width = 100 + "%";
+          index = 1;
+          number_of_image.innerHTML = index + "/" + (numberOfSlide + 1);
+      }
+  })
 
-if(window.matchMedia( "(max-width:450px)" )){
-       number_of_image.innerHTML = index + "/" + (numberOfSlide+1);
+  if (window.matchMedia("(max-width:450px)")) {
+      number_of_image.innerHTML = index + "/" + (numberOfSlide + 1);
       let sliderTableElement = {
           el: {
               image_container: document.querySelectorAll(".img-container"),
@@ -388,15 +388,13 @@ if(window.matchMedia( "(max-width:450px)" )){
                   }
               }
               sliderTableElement.end2();
-              
+
           },
           end2: function (e) {
               galleryContainer.classList.remove("animatee");
-                             number_of_image.innerHTML = index + "/" + (numberOfSlide+1);
+              number_of_image.innerHTML = index + "/" + (numberOfSlide + 1);
           },
       }
 
       sliderTableElement.init();
-}
-
-  
+  }

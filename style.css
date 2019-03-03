@@ -700,6 +700,7 @@ font-weight: 700;
     transition:1s;
 }
 .button{
+
     width:40px;
     height:40px;
     position:relative;
@@ -738,8 +739,8 @@ cursor:default;
 .button-active{
     display:block;
     position:fixed;
-    right:0;
-    top:0;
+     top:10px;
+    right:10px;
     z-index: 5006;  
 }
 .button-active::after,
@@ -781,7 +782,7 @@ cursor:default;
         position:relative;
     }
     .number-of-img{
-        width:50px;
+        width:55px;
         height:30px;
         background-color:rgba(0,0,0,.5);
         position:absolute;
@@ -789,7 +790,7 @@ cursor:default;
         z-index: 50000;
         bottom:10px;
         left:10px;
-        font-size:20px;
+        font-size:17px;
         text-align: center;
         display:block;
     }
