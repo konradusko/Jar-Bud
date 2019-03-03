@@ -145,23 +145,32 @@
   let ogrody_Images = document.querySelectorAll(".ogrod");
   let gallery_number = 0;
 
-
+let numberOfSlide = 17;
   wszystkie.addEventListener("click", () => {
       gallery_number = 0;
+      numberOfSlide = 17;
       event1();
+      translate();
 
   });
   wnetrza.addEventListener("click", () => {
       gallery_number = 1;
+         numberOfSlide = 5;
+              translate();
       event1();
+
   });
   elewacje.addEventListener("click", () => {
       gallery_number = 2;
-      event1();
+         numberOfSlide = 4;
+        translate();
+            event1();
   });
   ogrody.addEventListener("click", () => {
       gallery_number = 3;
-      event1();
+         numberOfSlide = 6;
+        translate();
+            event1();
 
   });
 
@@ -269,7 +278,8 @@
                   images_onclick.classList.remove("button-active");
 
                   if (body.className === "body-no-scroll") {
-                      images_onclick.removeChild(button_images);
+                     // images_onclick.removeChild(button_images);
+                            button_images.classList.remove("button-active");
                   }
                   body.classList.remove("body-no-scroll");
               }
@@ -280,7 +290,7 @@
   // mobile gallery
 
 
-
+let index = 1;
   let galleryContainer = document.getElementById("gallery-container");
   if (navigator.msMaxTouchPoints) {
 
@@ -293,7 +303,6 @@
           touchStartx: undefined,
           touchMovex: undefined,
           moveX: undefined,
-          index: 1,
           init: function () {
               this.bindEvents();
           },
@@ -314,14 +323,14 @@
           },
           move: function (e) {
               this.touchMovex = e.targetTouches[0].pageX;
-              this.moveX = (this.index - 1) * this.image_container_width + (this.touchStartx - this.touchMovex);
+              this.moveX = (index - 1) * this.image_container_width + (this.touchStartx - this.touchMovex);
               galleryContainer.classList.add("animatee");
-              if (this.index < 18) {
+              if (index < numberOfSlide+1) {
                   for (let i = 0; i <= 17; i++) {
                       this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
                   }
               }
-              if (this.touchMovex > this.touchStartx && this.index === 18) {
+              if (this.touchMovex > this.touchStartx && index === numberOfSlide+1) {
                   for (let i = 0; i <= 17; i++) {
                       this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
                   }
@@ -329,40 +338,52 @@
           },
           end: function (e) {
 
-              let distance = Math.abs((this.index - 1) * this.image_container_width - this.moveX)
+              let distance = Math.abs((index - 1) * this.image_container_width - this.moveX)
               if (distance > this.image_container_width / 3) {
 
-                  if (this.touchMovex < this.touchStartx && this.index > 1 && this.index < 18) {
+                  if (this.touchMovex < this.touchStartx && index > 1 && index < numberOfSlide+1) {
                       for (let i = 0; i <= 17; i++) {
-                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.image_container_width * this.index) + "px,0,0)");
+                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.image_container_width * index) + "px,0,0)");
                       }
-                      this.index++;
-                  } else if (this.touchMovex < this.touchStartx && this.index === 1) {
+                      index++;
+                  } else if (this.touchMovex < this.touchStartx && index === 1) {
 
                       for (let i = 0; i <= 17; i++) {
                           this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.image_container_width + "px,0,0)");
                       }
-                      this.index++;
+                      index++;
                   }
-                  if (this.touchMovex > this.touchStartx && this.index > 1) {
+                  if (this.touchMovex > this.touchStartx && index > 1) {
                       for (let i = 0; i <= 17; i++) {
-                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.image_container_width * (this.index - 2) + "px,0,0)");
+                          this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.image_container_width * (index - 2) + "px,0,0)");
                       }
-                      this.index--;
+                      index--;
                   }
               } else {
                   for (let i = 0; i <= 17; i++) {
-                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.index - 1) * this.image_container_width + "px,0,0)");
+                      this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (index - 1) * this.image_container_width + "px,0,0)");
                   }
               }
               sliderTableElement.end2();
           },
           end2: function (e) {
               galleryContainer.classList.remove("animatee");
-
           },
       }
 
       sliderTableElement.init();
+      
   }
+let image_contain = document.querySelectorAll(".img-container");
+
+ function translate(){
+    if (window.screen.width < 450) {
+     img_container_for_big_pictures.style.width = numberOfSlide+1 +"00%";
+     
+       for (let i = 0; i <= 17; i++) {
+                      image_contain[i].style.transform = ("translate", "translate3d(+" + 0 + "px,0,0)");
+                  }
+   index = 1;
+    }
+ }
 
