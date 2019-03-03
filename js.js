@@ -145,7 +145,7 @@
   let ogrody_Images = document.querySelectorAll(".ogrod");
   let gallery_number = 0;
 
-let numberOfSlide = 17;
+  let numberOfSlide = 17;
   wszystkie.addEventListener("click", () => {
       gallery_number = 0;
       numberOfSlide = 17;
@@ -155,22 +155,22 @@ let numberOfSlide = 17;
   });
   wnetrza.addEventListener("click", () => {
       gallery_number = 1;
-         numberOfSlide = 5;
-              translate();
+      numberOfSlide = 5;
+      translate();
       event1();
 
   });
   elewacje.addEventListener("click", () => {
       gallery_number = 2;
-         numberOfSlide = 4;
-        translate();
-            event1();
+      numberOfSlide = 4;
+      translate();
+      event1();
   });
   ogrody.addEventListener("click", () => {
       gallery_number = 3;
-         numberOfSlide = 6;
-        translate();
-            event1();
+      numberOfSlide = 6;
+      translate();
+      event1();
 
   });
 
@@ -239,11 +239,11 @@ let numberOfSlide = 17;
       }
   }
   // Gallery img 
-
-  let img_container_for_big_pictures = document.getElementById("gallery-container");
+  let galleryContainer = document.getElementById("gallery-container");
+  let image_contain = document.querySelectorAll(".img-container");
   let body = document.getElementById("body");
   let button_images = document.getElementById("button-images");
-  img_container_for_big_pictures.addEventListener("click", function (event) {
+galleryContainer.addEventListener("click", function (event) {
       if (window.screen.width > 450) {
           let obiekt = event.target.classList.contains("glob-img");
           let obiekt2 = event.target.classList.contains("image-on-click");
@@ -278,8 +278,8 @@ let numberOfSlide = 17;
                   images_onclick.classList.remove("button-active");
 
                   if (body.className === "body-no-scroll") {
-                     // images_onclick.removeChild(button_images);
-                            button_images.classList.remove("button-active");
+                      // images_onclick.removeChild(button_images);
+                      button_images.classList.remove("button-active");
                   }
                   body.classList.remove("body-no-scroll");
               }
@@ -289,12 +289,35 @@ let numberOfSlide = 17;
   })
   // mobile gallery
 
+let number_of_image = document.getElementById("number-of-img");
+  let index = 1;
 
-let index = 1;
-  let galleryContainer = document.getElementById("gallery-container");
-  if (navigator.msMaxTouchPoints) {
 
-  } else {
+  function translate() {
+      if (window.screen.width < 450) {
+         galleryContainer.style.width = numberOfSlide + 1 + "00%";
+  
+          for (let i = 0; i <= 17; i++) {
+              image_contain[i].style.transform = ("translate", "translate3d(+" + 0 + "px,0,0)");
+          }
+          index = 1;
+            number_of_image.innerHTML = index + "/" + (numberOfSlide+1);
+      }
+  }
+window.addEventListener("resize", () =>{
+  if (window.screen.width > 450) {
+   for (let i = 0; i <= 17; i++) {
+              image_contain[i].style.transform = ("translate", "translate3d(+" + 0 + "px,0,0)");
+          }
+          galleryContainer.classList.remove("animatee");
+      galleryContainer.style.width = 100 + "%";
+      index = 1;
+        number_of_image.innerHTML = index + "/" + (numberOfSlide+1);
+  }
+})
+
+if(window.matchMedia( "(max-width:450px)" )){
+       number_of_image.innerHTML = index + "/" + (numberOfSlide+1);
       let sliderTableElement = {
           el: {
               image_container: document.querySelectorAll(".img-container"),
@@ -325,12 +348,12 @@ let index = 1;
               this.touchMovex = e.targetTouches[0].pageX;
               this.moveX = (index - 1) * this.image_container_width + (this.touchStartx - this.touchMovex);
               galleryContainer.classList.add("animatee");
-              if (index < numberOfSlide+1) {
+              if (index < numberOfSlide + 1) {
                   for (let i = 0; i <= 17; i++) {
                       this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
                   }
               }
-              if (this.touchMovex > this.touchStartx && index === numberOfSlide+1) {
+              if (this.touchMovex > this.touchStartx && index === numberOfSlide + 1) {
                   for (let i = 0; i <= 17; i++) {
                       this.el.image_container[i].style.transform = ("translate", "translate3d(-" + this.moveX + "px,0,0)");
                   }
@@ -341,7 +364,7 @@ let index = 1;
               let distance = Math.abs((index - 1) * this.image_container_width - this.moveX)
               if (distance > this.image_container_width / 3) {
 
-                  if (this.touchMovex < this.touchStartx && index > 1 && index < numberOfSlide+1) {
+                  if (this.touchMovex < this.touchStartx && index > 1 && index < numberOfSlide + 1) {
                       for (let i = 0; i <= 17; i++) {
                           this.el.image_container[i].style.transform = ("translate", "translate3d(-" + (this.image_container_width * index) + "px,0,0)");
                       }
@@ -365,25 +388,15 @@ let index = 1;
                   }
               }
               sliderTableElement.end2();
+              
           },
           end2: function (e) {
               galleryContainer.classList.remove("animatee");
+                             number_of_image.innerHTML = index + "/" + (numberOfSlide+1);
           },
       }
 
       sliderTableElement.init();
-      
-  }
-let image_contain = document.querySelectorAll(".img-container");
+}
 
- function translate(){
-    if (window.screen.width < 450) {
-     img_container_for_big_pictures.style.width = numberOfSlide+1 +"00%";
-     
-       for (let i = 0; i <= 17; i++) {
-                      image_contain[i].style.transform = ("translate", "translate3d(+" + 0 + "px,0,0)");
-                  }
-   index = 1;
-    }
- }
-
+  
