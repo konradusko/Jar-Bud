@@ -1130,13 +1130,22 @@ display:flex;
 @media only screen and (max-width:700px){
     .contact-container{
         flex-direction: column;
-        min-height:140vh;
+        height:100%;
     }
-
+    .contact-image-and-info{
+        flex:none;
+    }
+    .contact-email-form{
+        flex:none;
+    }
+    .contact-email-form .contact-email-container{
+        margin:10px auto 20px auto;
+    }
     .contact-image-and-info .content-image-and-info{
         min-width:100%;
         min-height: 100%;
         margin:0;
+        padding:10px;
     }
   .contact-image-and-info .content-image-and-info .contact-info-glob{
     margin:auto 0 auto 30px;
