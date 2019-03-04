@@ -988,7 +988,7 @@ top:-18px;
 
     .contact-image-and-info .content-image-and-info{
         min-width:100%;
-        min-height:80%;
+        min-height:100px;
     }
   .contact-image-and-info .content-image-and-info .contact-info-glob{
     margin:auto 0 auto 30px;;
