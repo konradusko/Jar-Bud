@@ -1007,7 +1007,7 @@ top:-18px;
 }
 @media only screen and (max-width:920px){
       .contact-image-and-info .content-image-and-info{
-        margin:auto;
+        margin:0;
         width:100%;
     }
 }
@@ -1137,6 +1137,7 @@ display:flex;
     .contact-image-and-info .content-image-and-info{
         min-width:100%;
         min-height: 100%;
+        margin:0;
     }
   .contact-image-and-info .content-image-and-info .contact-info-glob{
     margin:auto 0 auto 30px;;
