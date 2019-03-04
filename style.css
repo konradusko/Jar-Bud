@@ -980,20 +980,7 @@ top:-18px;
         margin:5px;
     }
 }
-@media only screen and (max-width:700px){
-    .contact-container{
-        flex-direction: column;
-        min-height:200vh;
-    }
 
-    .contact-image-and-info .content-image-and-info{
-        min-width:100%;
-        min-height:100px;
-    }
-  .contact-image-and-info .content-image-and-info .contact-info-glob{
-    margin:auto 0 auto 30px;;
-}
-}
  @media only screen and (max-width:800px){
 
 .about-us-content .text{
@@ -1141,4 +1128,17 @@ display:flex;
         flex: 2;
     }
 }
+@media only screen and (max-width:700px){
+    .contact-container{
+        flex-direction: column;
+        min-height:140vh;
+    }
 
+    .contact-image-and-info .content-image-and-info{
+        min-width:100%;
+        min-height: 100%;
+    }
+  .contact-image-and-info .content-image-and-info .contact-info-glob{
+    margin:auto 0 auto 30px;;
+}
+}
