@@ -5,6 +5,8 @@
 }
 #body{
   font-family: 'Noto Sans', sans-serif;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 /* NAV */
 .menu-main-mobile {
@@ -468,7 +470,7 @@ height:400px;
   background-color: rgba(0,0,0, 0.4);
     animation-name:anime;
     animation-duration: 2s;
-         animation-iteration-count:1;
+      animation-iteration-count:1; 
 }
 @keyframes anime{
     0%{
@@ -859,7 +861,7 @@ top:-18px;
     width:100%;
     height:100%;
     margin-top:50px;
-    background:rgba(37, 58, 34, 0.96);
+    background:rgba(22, 17, 6, 0.616);
     position:relative;
 }
 .footer-arrow{
@@ -870,10 +872,12 @@ top:-18px;
     animation:arrow-animation 2s infinite;
 }
 .footer-arrow i{
-    color:#7b6c63;
+    color:#f1f5f5ef;
     cursor:pointer;
-
-
+    transition:1s;
+}
+.footer-arrow i:hover{
+    color:crimson;
 }
 @keyframes arrow-animation{
     0%{
