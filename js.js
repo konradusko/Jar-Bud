@@ -398,3 +398,92 @@
 
       sliderTableElement.init();
   }
+//scroll
+let button_header = document.getElementById("button-header");
+let arrow = document.getElementById("arrow");
+let button_home = document.getElementById("Button-home");
+let button_onas = document.getElementById("button-o-nas");
+let button_specializacje = document.getElementById("button-specializacje");
+let button_gallery = document.getElementById("button-gallery");
+let button_kontakt = document.getElementById("button-kontakt");
+
+button_kontakt.addEventListener("click", () =>{
+    document.getElementById("contact_scroll").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+button_gallery.addEventListener("click", () =>{
+    document.getElementById("galeria_scroll").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+button_specializacje.addEventListener("click", () =>{
+    document.getElementById("specializacje_scroll").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+button_onas.addEventListener("click", () =>{
+    document.getElementById("about").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+button_home.addEventListener("click", () =>{
+    document.getElementById("header").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+//mobile
+let mobile_button_home = document.getElementById("mobile-Button-home");
+let mobile_button_onas = document.getElementById("mobile-button-o-nas");
+let mobile_button_specializacje = document.getElementById("mobile-button-specializacje");
+let mobile_button_gallery = document.getElementById("mobile-button-gallery");
+let mobile_button_kontakt = document.getElementById("mobile-button-kontakt");
+
+mobile_button_kontakt.addEventListener("click", () =>{
+    document.getElementById("contact_scroll").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+mobile_button_gallery.addEventListener("click", () =>{
+    document.getElementById("galeria_scroll").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+mobile_button_specializacje.addEventListener("click", () =>{
+    document.getElementById("specializacje_scroll").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+mobile_button_onas.addEventListener("click", () =>{
+    document.getElementById("about").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+mobile_button_home.addEventListener("click", () =>{
+    document.getElementById("header").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+
+arrow.addEventListener("click", () =>{
+    document.getElementById("header").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})
+button_header.addEventListener("click", () =>{
+    document.getElementById("about").scrollIntoView({
+        behavior: 'smooth',
+        block: "start"
+      });
+})

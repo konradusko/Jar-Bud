@@ -5,8 +5,6 @@
 }
 #body{
   font-family: 'Noto Sans', sans-serif;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 /* NAV */
 .menu-main-mobile {
@@ -14,7 +12,7 @@
     height: 50vh;
     background-color: #303030;
     right: 0;
-    top: 95px;
+    top: 75px;
     display: flex;
     transform: translateX(200%);
     transition: .5s;
@@ -40,7 +38,7 @@
     display: flex;
     justify-content: center;
 }
-.menu-main-mobile ul li a {
+.menu-main-mobile ul li p {
     flex: 1;
     padding: 10px;
     display: flex;
@@ -52,10 +50,11 @@
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
+    cursor:pointer;
 }
 .nav {
     width: 100%;
-    height: 95px;
+    height: 75px;
     top: 0;
     position: fixed;
     background-color: #303030;
@@ -76,7 +75,7 @@
 .nav .nav-container .nav-logo p {
     margin: auto 0 auto 10px;
     color: #ffffff;
-    font-size: 28px;
+    font-size: 20px;
 }
 .nav .nav-container .nav-menu {
     flex: 1;
@@ -609,7 +608,7 @@ background-color: #7b6c63;
     width:100%;
     max-width: 500px;
     height:100%;
-    margin:0 auto;
+    margin:20px auto;
 }
 .gallery-container .span-projects{
     width: 76px;
@@ -900,7 +899,7 @@ top:-18px;
 .footer-bottom-social{
  width:400px;
  height:100px;
- margin:70px auto 30px auto;
+ margin:20px auto 10px auto;
 
 }
 .footer-bottom-social ul{
@@ -931,7 +930,7 @@ width:100%;
 height:50px;
 display:flex;
 flex-direction: column;
-margin-bottom:60px;
+margin-bottom:30px;
 }
 .footer-bottom-text p{
     margin:auto;
@@ -1073,6 +1072,10 @@ margin-bottom:60px;
     .footer-bottom-social{
         width:100%;
     }
+    .footer-bottom-social ul{
+        width:60%;
+        margin:0 auto;
+    }
 }
 
  @media only screen and (max-width:800px){
@@ -1119,7 +1122,9 @@ margin-bottom:60px;
         display: flex;
 
     }
-
+    .nav{
+        height:55px;
+    }
     .nav-container {
         width: 70%;
     }
@@ -1129,7 +1134,7 @@ margin-bottom:60px;
     }
 
     .nav .nav-container .nav-logo p {
-        font-size: 48px;
+        font-size: 28px;
         margin: auto 0;
     }
 
@@ -1156,7 +1161,7 @@ margin-bottom:60px;
         justify-content: center;
     }
 
-    .nav-menu-big ul li a {
+    .nav-menu-big ul li p {
         text-align: center;
         text-decoration: none;
         color: #ffffff;
@@ -1165,6 +1170,7 @@ margin-bottom:60px;
         line-height: 30.07px;
         text-transform: uppercase;
         letter-spacing: 1.2px;
+        cursor:pointer;
     }
   
 
