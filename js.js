@@ -401,6 +401,7 @@
 //scroll
 let button_header = document.getElementById("button-header");
 let arrow = document.getElementById("arrow");
+//menu button
 let button_home = document.getElementById("Button-home");
 let button_onas = document.getElementById("button-o-nas");
 let button_specializacje = document.getElementById("button-specializacje");
@@ -487,3 +488,53 @@ button_header.addEventListener("click", () =>{
         block: "start"
       });
 })
+
+window.addEventListener("scroll", function() {
+    let header_height = document.getElementById("header");
+    let about_height = document.getElementById("about");
+    let about_height_content = document.getElementById("about-concent");
+    let about_us = about_height.offsetHeight + about_height_content.offsetHeight;
+    let specializacje_height = document.getElementById("specializacje_scroll");
+    let gallery_height = document.getElementById("galeria_scroll");
+    let gallery_height_content = document.getElementById("gallery-section");
+    let gallery_All_height = gallery_height.offsetHeight + gallery_height_content.offsetHeight;
+    let contact_height = document.getElementById("contact_scroll"); 
+
+    
+    if(document.body.scrollTop || document.documentElement.scrollTop < header_height.offsetHeight){
+        remove_acitve()
+        mobile_button_home.classList.add("nav-active");
+        button_home.classList.add("nav-active");
+        
+    }else if(document.body.scrollTop || document.documentElement.scrollTop < about_us + header_height.offsetHeight) {
+        console.log("abut");
+        remove_acitve()
+        mobile_button_onas.classList.add("nav-active");
+        button_onas.classList.add("nav-active");
+    }else if(document.body.scrollTop || document.documentElement.scrollTop < about_us + header_height.offsetHeight + specializacje_height.offsetHeight){
+        console.log("specializacje");
+        remove_acitve()
+        mobile_button_specializacje.classList.add("nav-active");
+        button_specializacje.classList.add("nav-active");
+    }else if(document.body.scrollTop || document.documentElement.scrollTop < about_us + header_height.offsetHeight + specializacje_height.offsetHeight + gallery_All_height){
+        console.log("galeria");
+        remove_acitve()
+        mobile_button_gallery.classList.add("nav-active");
+        button_gallery.classList.add("nav-active");
+    }else if(document.body.scrollTop || document.documentElement.scrollTop < about_us + header_height.offsetHeight + specializacje_height.offsetHeight + gallery_All_height + contact_height.offsetHeight){
+        console.log("kontakt");
+        remove_acitve()
+        mobile_button_kontakt.classList.add("nav-active");
+        button_kontakt.classList.add("nav-active");
+    }
+  
+    
+})
+
+function remove_acitve(){
+    let buttons_nav = document.querySelectorAll(".menu_No_active");
+    for(let i = 0; i <= 9; i++){
+      buttons_nav[i].classList.remove("nav-active");
+    }
+  
+}
