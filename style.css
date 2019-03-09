@@ -230,7 +230,6 @@
     position: relative;
     overflow: hidden;
     display: flex;
-    /*     opacity:.5; */
 }
 .main-banner .img-ban {
     width: 100%;
@@ -323,7 +322,7 @@ letter-spacing: 0.9px;
     height:100%;
     display:flex;
     flex-direction: row;
-        background-color: #f4f7f9;
+        background-color:white;
 }
 .about-us-content .text{
     padding-top:50px;
@@ -348,15 +347,16 @@ letter-spacing: 0.9px;
     padding:30px;
     text-align: center;
     font-size:40px;
+    color:#703f20;
     text-transform: uppercase;
 letter-spacing: 2px;
 }
 .about-us-content .text p{
-    /* text-align: center; */
     font-size:20px;
     padding:40px;
 
 }
+
 .about-us-content .about-us-button {
         margin:50px;
     background:none;
@@ -607,7 +607,6 @@ background-color: #7b6c63;
 }
 /* gallery */
 .gallery{
-    margin-top:100px;
     width:100%;
     height:100%;
     display:flex;
@@ -617,7 +616,7 @@ background-color: #7b6c63;
     width:100%;
     max-width: 500px;
     height:100%;
-    margin:20px auto;
+    margin:90px auto;
 }
 .gallery-container .span-projects{
     width: 76px;
@@ -767,13 +766,49 @@ cursor:default;
             transform: rotate(45deg);
 }
 /* contact */
+.contact-tag{
+    width:100%;
+    height:200px;
+    display:flex;
+    justify-content: flex-end;
+}
+.contact-tag-content{
+width:300px;
+height:100px;
+display:flex;
+margin:90px auto 0 auto;
+flex-direction: column;
+}
+.contact-tag-content h6{
+    margin:auto;
+    text-align: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #7b6c63;
+}
+.contact-tag-content .span-k{
+    width: 76px;
+    height: 6px;
+    display: flex;
+    margin: 0 auto;
+    background-color: #7b6c63;
+}
+
 .contact-container{
+    width:100%;
+    height:100%;
+    display:flex;
+    
+}
+.container_kontakt{
+ 
     width:80%;
     height:90vh;
     margin:90px auto 30px auto;
     display:flex;
     box-shadow: 7px 6px 14px 1px rgba(0,0,0,0.75);
-    
+
 }
 .contact-image-and-info{
     flex:1;
@@ -864,6 +899,25 @@ top:-18px;
 .message{
     color:black;
 }
+.contact-button{
+  margin:20px 20px 20px 0;
+    width:70px;
+    height:35px;
+    background:none;
+    cursor:pointer;
+    border:2px solid #7b6c63;
+    border-radius:8px;
+    font-size:16px;
+    transition:1s;
+    position:relative;
+    
+}
+.contact-button:hover{
+    background-color:#2e231da1;
+    color:white; 
+}
+
+
 /*footer*/
 .footer{
     width:100%;
@@ -956,10 +1010,7 @@ margin-bottom:30px;
     color:#c6cfd4;
 }
 
-/* nav scroll */
-.nav-active{
-    color:red;
-}
+
 /* MEDIA */
 
 @media only screen and (max-width:450px){
@@ -1154,7 +1205,6 @@ margin-bottom:30px;
 
     .nav-menu-big {
         width: 521px;
-        /*height: 30px;*/
         display: flex;
         margin:0 auto;
     }
@@ -1251,7 +1301,7 @@ display:flex;
     padding:5px;
 }
     .projects .projects-logo {
-   margin:auto;
+   margin:85px auto auto auto;
 }
 .projects .projects-logo .projects-logo-box{
    width:100%;
@@ -1271,7 +1321,7 @@ display:flex;
     }
 }
 @media only screen and (max-width:700px){
-    .contact-container{
+    .container_kontakt{
         flex-direction: column;
         height:100%;
     }
@@ -1290,11 +1340,13 @@ display:flex;
         margin:0;
         padding:10px;
     }
-/*   .contact-image-and-info .content-image-and-info .contact-info-glob{
-    margin:auto 0 auto 30px;
-  } */
+
 }
 @media only screen and (max-width:320px) {
+    .projects{
+        height:200vh;
+        margin-top:0;
+    }
     .header .header-content .header-content-main .p-header-one {
         font-size: 14px;
     }
@@ -1302,7 +1354,8 @@ display:flex;
         font-size:25px;
     }
     .projects .projects-logo{
-        margin:10px auto 100px auto;
+        margin:0 auto 60px auto;
+        justify-content: flex-end;
     }
     .projects .projects-logo h3{
         font-size:22px;
