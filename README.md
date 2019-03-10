@@ -1,4 +1,4 @@
 # Ja-Bud
-https://konradusko.github.io/Jar-Bud/
+https://konradusko.github.io/Ja-Bud/
 
 Learn html, css, javascirpt...
